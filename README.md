@@ -1,2 +1,46 @@
 # joroutines
 Get all the power of Goroutines in Android. Android native lib written that lets you run your Android Java code into a goroutine in a very easy way.
+
+## Motivation
+Golang relies very much in goroutines to do its background work, and thanks to that, they are really fast and optimized, specially when compared with Threads or even pools of Threads. 
+
+Talking about Joroutines, I made some tests launching 200.000 concurrent AsyncTasks and same amount of Joroutines, and they use around 30% less memory and more important, less than half of the time in average.  
+
+## How it works
+
+joroutines uses [gomobile] (https://github.com/golang/mobile) for the .aar to be compiled and packaged. Gomobile creates all required Java stubs and the native lib that will be called from Java code via JNI.
+
+## How to build the lib
+
+Checkout this lib into your GOPATH:
+
+go get github.com/charro/joroutines
+
+Get and configure gomobile in case you haven't done that yet, following the instructions from [Gomobile] (https://github.com/golang/go/wiki/Mobile)
+
+Build the .aar file using the make_aar.sh command:
+
+make_aar.sh [RELATIVE_PATH_OF_JOROUTINES_INTO_YOUR_GOPATH] [PATH_AND_NAME_OF_AAR_FILE_TO_GENERATE]
+
+example:  make_aar.sh github.com/charro/joroutines /home/myself/joroutines.aar
+
+The script will call gomobile to do its work, so in case you get some error, you should check that you configured Gomobile correctly (Check if you did the init, set the SDK and NDK ... etc)
+
+If everything went right, you'll have now a new .aar file that you can import in your Android Studio project as a new module. You'll get also a .jar file with the sources in case you need to debug it.
+
+## How to use it in your code
+
+Once you've imported the .aar file as a new module, you can use the Joroutines Java classes directly to create your own background tasks like in this example:
+
+```
+Joroutine.runOnGoRoutine(new BackgroundTask(){
+    @Override public void run(){
+      // Code that will run into a goroutine in background            
+    }
+    
+    @Override public void logDebug(String message) {
+      // Message coming from go
+      Log.d("GODEBUG", message);
+    }
+});
+```

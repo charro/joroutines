@@ -7,6 +7,5 @@ if [ -z "$1" ]
     echo $message
     echo
 else
-  export GOPATH=/home/maik/development/go
   gomobile bind -v -target=android -o=$1 joroutines
 fi

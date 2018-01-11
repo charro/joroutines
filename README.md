@@ -8,7 +8,7 @@ Talking about Joroutines, I made some tests launching 200.000 concurrent AsyncTa
 
 ## How it works
 
-joroutines uses [gomobile] (https://github.com/golang/mobile) for the .aar to be compiled and packaged. Gomobile creates all required Java stubs and the native lib that will be called from Java code via JNI.
+joroutines uses [gomobile](https://github.com/golang/mobile) for the .aar to be compiled and packaged. Gomobile creates all required Java stubs and the native lib that will be called from Java code via JNI.
 
 ## How to build the lib
 
@@ -16,7 +16,7 @@ Checkout this lib into your GOPATH:
 
 go get github.com/charro/joroutines
 
-Get and configure gomobile in case you haven't done that yet, following the instructions from [Gomobile] (https://github.com/golang/go/wiki/Mobile)
+Get and configure gomobile in case you haven't done that yet, following the instructions from [Gomobile](https://github.com/golang/go/wiki/Mobile)
 
 Build the .aar file using the make_aar.sh command:
 

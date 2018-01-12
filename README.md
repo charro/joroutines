@@ -4,7 +4,7 @@ Get all the power of Goroutines in Android. Android native lib written that lets
 ## Motivation
 Golang relies very much in goroutines to do its background work, and thanks to that, they are really fast and optimized, specially when compared with Threads or even pools of Threads. 
 
-Talking about Joroutines, I made some tests launching 200.000 concurrent AsyncTasks and same amount of Joroutines, and they use around 30% less memory and more important, less than half of the time in average.  
+Talking about Joroutines, I made some tests launching 200.000 concurrent AsyncTasks and same amount of Joroutines, and they use around 30% less memory and more important, **they are completed in less than half of the time** in average.  
 
 ## How it works
 

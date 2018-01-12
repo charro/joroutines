@@ -10,7 +10,16 @@ Talking about Joroutines, I made some tests launching 200.000 concurrent AsyncTa
 
 joroutines uses [gomobile](https://github.com/golang/mobile) for the .aar to be compiled and packaged. Gomobile creates all required Java stubs and the native lib that will be called from Java code via JNI.
 
-## How to build the lib
+## How to use it
+
+### The easy way: Add the dependency to your gradle file
+
+You just need to add this line inside 'dependencies' section of your project:
+```
+compile 'com.github.charro:joroutines:0.0.1'
+```
+
+### The hard way: Build the aar yourself
 
 Checkout this lib into your GOPATH:
 
@@ -28,12 +37,13 @@ The script will call gomobile to do its work, so in case you get some error, you
 
 If everything went right, you'll have now a new .aar file that you can import in your Android Studio project as a new module. You'll get also a .jar file with the sources in case you need to debug it.
 
+
 ## How to use it in your code
 
 Once you've imported the .aar file as a new module, you can use the Joroutines Java classes directly to create your own background tasks like in this example:
 
 ```
-Joroutine.runOnGoRoutine(new BackgroundTask(){
+Joroutine.runIntoGoroutine(new BackgroundTask(){
     @Override public void run(){
       // Code that will run into a goroutine in background            
     }

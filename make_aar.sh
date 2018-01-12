@@ -1,11 +1,12 @@
-if [ -z "$1" ]
+if [ "$#" -ne 2 ]
   then
-    printf "\nYou need to provide the full path where you want the .aar file to be generated. A jar file with sources will be generated there too\n\n"
+    echo "You need to provide the relative path of this lib into your GOPATH and the full path where you want the .aar lib to be generated"
+    echo
     message="Example:    "
     message+=$0
-    message+=" /home/myself/myproject/joroutine.aar"
+    message+=" github.com/charro/joroutines  /home/myself/myproject/joroutine.aar"
     echo $message
     echo
 else
-  gomobile bind -v -target=android -o=$1 joroutines
+    gomobile bind -v -target=android -o=$2 $1
 fi

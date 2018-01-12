@@ -43,14 +43,14 @@ If everything went right, you'll have now a new .aar file that you can import in
 Once you've included the lib in your project you can use the Joroutines Java classes to create your own background tasks like this:
 
 ```
-Joroutine.runIntoGoroutine(new BackgroundTask(){
-    @Override public void run(){
-      // Code that will run into a goroutine in background            
-    }
-    
-    @Override public void logDebug(String message) {
-      // Message coming from go
-      Log.d("GODEBUG", message);
-    }
-});
+Joroutines.runIntoGoroutine(new BackgroundTask(){
+            @Override public void run(){
+                // Code that will run into a goroutine in background
+            }
+
+            @Override public void logDebug(String message) {
+                // Message coming from go
+                Log.d("GODEBUG", message);
+            }
+        });
 ```

@@ -40,7 +40,7 @@ If everything went right, you'll have now a new .aar file that you can import in
 
 ## How to use it in your code
 
-Once you've imported the .aar file as a new module, you can use the Joroutines Java classes directly to create your own background tasks like in this example:
+Once you've included the lib in your project you can use the Joroutines Java classes to create your own background tasks like this:
 
 ```
 Joroutine.runIntoGoroutine(new BackgroundTask(){

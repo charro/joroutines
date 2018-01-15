@@ -1,5 +1,5 @@
 # joroutines
-Get all the power of Goroutines in Android. Android native lib written that lets you run your Android Java code into a goroutine in a very easy way.
+Get all the power of Goroutines in Android. Android native lib written in Go that lets you run your Android Java code into a goroutine in a very easy way.
 
 ## Motivation
 Golang relies very much in goroutines to do its background work, and thanks to that, they are really fast and optimized, specially when compared with Threads or even pools of Threads. 
@@ -8,18 +8,18 @@ Talking about Joroutines, I made some tests launching 200.000 concurrent AsyncTa
 
 ## How it works
 
-joroutines uses [gomobile](https://github.com/golang/mobile) for the .aar to be compiled and packaged. Gomobile creates all required Java stubs and the native lib that will be called from Java code via JNI.
+joroutines uses [gomobile](https://github.com/golang/mobile) for the .aar to be compiled and packaged. Gomobile creates all required Java stubs and the native .so lib that will be called from Java code via JNI.
 
 ## How to use it
 
-### The easy way: Add the dependency to your gradle file
+### A) The easy way: Add the dependency to your gradle file
 
-You just need to add this line inside 'dependencies' section of your project:
+The .aar file is hosted in JCenter default android repository, so you just need to add this line inside 'dependencies' section of your project and it will be added to your project:
 ```
 compile 'com.github.charro:joroutines:0.0.1'
 ```
 
-### The hard way: Build the aar yourself
+### B) The hard way: Build the aar yourself
 
 Checkout this lib into your GOPATH:
 
